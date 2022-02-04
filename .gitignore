@@ -1,0 +1,3 @@
+public/files/**
+.vscode
+cache.db
