@@ -1,5 +1,4 @@
 <?php
-print_r($argv);
 
 switch($argv[1] ?? "") {
 	/*
