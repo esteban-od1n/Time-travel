@@ -1,5 +1,5 @@
-<?php
-/*
+<?php 
+
 class Template {
 	private string $file_name;
 	private array $__template_data = [];
@@ -21,4 +21,3 @@ class Template {
 		return $this->__template_data[$key] ?? null;
 	}
 }
-*/
