@@ -1,2 +1,3 @@
-<?php namespace Corntrollers;
+<?php namespace Controllers;
 
+class Main {}

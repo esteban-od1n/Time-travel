@@ -1,4 +1,9 @@
 <?php
+require_once '../core/core.php';
+require_once '../core/template.php';
+require_once '../core/storage.php';
+require_once '../core/files.php';
+
 /* 
  * Helper function to import all the php files inside a directory
  * */
@@ -18,12 +23,19 @@ function dir_import(string $path, int $depth = 0) {
 	}
 }
 
-// Import all the Entities, Services and core files
-dir_import("src/Entities");
-dir_import("src/Services");
-dir_import("src");
+// Autoload all unregistered classes within the source directory
+spl_autoload_register(function(string $entity) {
+	$entity_dir = './src';
+	$entity_parts = explode('\\', $entity);
+	if(count($entity_parts) < 2)
+		return false;
+	$entity_dir .= "/$entity_parts[0]/$entity_parts[1].php";
+	include_once $entity_dir;
+	return true;
+});
 
-$app = new Core;
+// Import all the files inside the source dir
+// dir_import("src/Controllers");
 
 echo "<pre>";
 print_r($_SERVER);

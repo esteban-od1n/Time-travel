@@ -1,4 +1,3 @@
 time_travel.index:
   path: '/'
   controller: '\Controllers\Main::index'
-  title: 'Time Travel'
